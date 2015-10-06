@@ -38,6 +38,7 @@ def main():
     motes =init_motes(5)
     
     with open(sys.argv[1], "rb") as f:
+       
        for line in f.readlines():
            data = line.split()
            motes[data[1]]["cpu"].append(calculate_pmw(int(data[2]), "cpu"))
@@ -46,8 +47,16 @@ def main():
            motes[data[1]]["rx"].append(calculate_pmw(int(data[5]), "rx"))
            motes[data[1]]["sent"].append(int(data[6]))
            motes[data[1]]["fw"].append(int(data[7]))
-           
-    print motes["ID:2"]
+       
+       
+       cpu_pw = reduce(lambda x,y: x+y, motes["ID:2"]["cpu"])
+       lpm_pw = reduce(lambda x,y: x+y, motes["ID:2"]["lpm"])
+       tx_pw = reduce(lambda x,y: x+y, motes["ID:2"]["tx"])
+       rx_pw = reduce(lambda x,y: x+y, motes["ID:2"]["rx"])
+       
+       print cpu_pw, lpm_pw, tx_pw, rx_pw
+       
+    
 
 if __name__ == '__main__':
     main()
