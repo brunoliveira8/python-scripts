@@ -6,10 +6,12 @@ Created on Tue Oct  6 17:56:48 2015
 """
 
 import sys
+import os
 
 RTIMER_SECOND = 32768
 RUNTIME = 30
 
+PATH = "8-10"
 
 def init_motes(number):
     motes = {}    
@@ -37,7 +39,7 @@ def calculate_pmw(value, opt):
 def main():
     motes =init_motes(5)
     
-    with open(sys.argv[1], "rb") as f:
+    with open(os.path.join(PATH,sys.argv[1]), "rb") as f:
        
        for line in f.readlines():
            data = line.split()
@@ -47,6 +49,7 @@ def main():
            motes[data[1]]["rx"].append(calculate_pmw(int(data[5]), "rx"))
            motes[data[1]]["sent"].append(int(data[6]))
            motes[data[1]]["fw"].append(int(data[7]))
+          
        
        
        cpu_pw = reduce(lambda x,y: x+y, motes["ID:2"]["cpu"])
@@ -55,6 +58,17 @@ def main():
        rx_pw = reduce(lambda x,y: x+y, motes["ID:2"]["rx"])
        
        print cpu_pw, lpm_pw, tx_pw, rx_pw
+       print cpu_pw+lpm_pw+tx_pw+rx_pw
+       
+       
+        
+       cpu_pw = reduce(lambda x,y: x+y, motes["ID:3"]["cpu"])
+       lpm_pw = reduce(lambda x,y: x+y, motes["ID:3"]["lpm"])
+       tx_pw = reduce(lambda x,y: x+y, motes["ID:3"]["tx"])
+       rx_pw = reduce(lambda x,y: x+y, motes["ID:3"]["rx"])
+       
+       print cpu_pw, lpm_pw, tx_pw, rx_pw
+       print cpu_pw+lpm_pw+tx_pw+rx_pw
        
     
 
