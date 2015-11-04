@@ -1,6 +1,6 @@
 #!/bin/bash
 mote=1
-for mote in `seq 1 49`;
+for mote in `seq 1 33`;
 do
 	echo "Opening port ${mote}"
 	port=$(($mote-1))

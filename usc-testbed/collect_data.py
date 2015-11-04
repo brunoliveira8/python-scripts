@@ -62,18 +62,6 @@ for channel in channels:                                                        
     
     print "Channel " + str(channel)
 
-    # Setting all nodes in the right channel
-    for node in nodes:
-        serials[node - 1].write("\n")
-        serials[node - 1].flushInput()
-        serials[node - 1].write("\nrfchannel " + str(channel) + " | binprint\n")
-        # Lets make sure we set properly the channel
-        serials[node - 1].flush()
-        line = serials[node - 1].readline()
-        while line != "1 " + str(channel) + " \r\n":
-            serials[node - 1].write("\nrfchannel " + str(channel) + " | binprint\n")
-            serials[node - 1].flush()
-            line = serials[node - 1].readline()
 
     for sender in nodes:
         print "Sender " + str(sender)
