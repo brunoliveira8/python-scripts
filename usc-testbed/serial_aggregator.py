@@ -32,6 +32,7 @@ def listen_node(node):
 
 	while True:
 		with open('data/mote{}.txt'.format(node), 'a') as f:
+			data_raw = ser.readline()
 			if len(data_raw) > 0:
 				f.write(data_raw)
 
