@@ -20,7 +20,7 @@ nodes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17,
 def listen_node(node):
 
 	ser = serial.Serial(
-		    port='/dev/ttyUSB' + str(node), \
+		    port='/dev/ttyUSB' + str(node-1), \
 		    baudrate=115200, \
 		    parity=serial.PARITY_NONE, \
 		    stopbits=serial.STOPBITS_ONE, \
@@ -32,7 +32,7 @@ def listen_node(node):
 
 	while True:
 		with open('data/mote{}.txt'.format(node), 'a') as f:
-			data_raw = ser.readline()
+			data_raw = ser.readline()	
 			if len(data_raw) > 0:
 				f.write(data_raw)
 
