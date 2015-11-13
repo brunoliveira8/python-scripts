@@ -44,7 +44,7 @@ def calculate_pmw(value, opt):
 def main():
 
   for node in nodes:
-    with open('data/mote{}.txt'.format(node), 'r') as f:
+    with open('balanced-rpl60/mote{}.txt'.format(node), 'r') as f:
       mote = {'tx': [], 'rx' : []}
       for line in f.readlines():
              data = line.split() 

@@ -21,13 +21,13 @@ nodes = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17,
 def main():
 
   for node in nodes:
-    with open('rpl-normal/mote{}.txt'.format(node), 'r') as f:
+    with open('balanced-rpl10/mote{}.txt'.format(node), 'r') as f:
       lines =  f.readlines()
 
       MAX = len(lines)
       
       if MAX > 0:
-        print lines[MAX-1].split()[4]
+        print lines[MAX-1].split()[5]
              
 
 
