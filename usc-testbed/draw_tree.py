@@ -29,7 +29,7 @@ def print_graph():
             lines = f.readlines()
             max_line = len(lines)
             v = str(node)
-            u = lines[max_line-1].split(':')[1]
+            u = lines[max_line-1].split(':')[1] #edita aqui para mudar o instantes da arvore
             u = u.split('\n')[0]
             u = motes_ip[u]
         
