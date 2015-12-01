@@ -4,7 +4,7 @@ import time
 
 
 
-end = datetime.time(20, 8, 0)
+end = datetime.time(5, 11, 0)
 
 while True:
 	now = datetime.datetime.now().time()

@@ -15,7 +15,7 @@ PATH = "data"
 
 
 
-nodes = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 
+nodes = [2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 17, 
     18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 
     31, 32, 33, 34, 36, 37, 38, 39, 40, 41, 42, 43, 
     44, 45, 46, 47,48, 49]
@@ -44,12 +44,13 @@ def calculate_pmw(value, opt):
 def main():
 
   for node in nodes:
-    with open('balanced-rpl60/mote{}.txt'.format(node), 'r') as f:
+    with open('normal-rpl-v3/mote{}.txt'.format(node), 'r') as f:
       mote = {'tx': [], 'rx' : []}
       for line in f.readlines():
              data = line.split() 
-             mote['tx'].append(calculate_pmw(int(data[0]), 'tx'))
-             mote['rx'].append(calculate_pmw(int(data[1]), 'rx'))
+             if data[0] == '#1':
+               mote['tx'].append(calculate_pmw(int(data[1]), 'tx'))
+               mote['rx'].append(calculate_pmw(int(data[2]), 'rx'))
     
       
       if len(mote['rx']) > 0:
