@@ -22,8 +22,8 @@ def pdr_graph():
     balanced_90 = (0, 0, 27.37, 0 )
     std_balanced_90 = (0,0,5.56, 0)
     
-    cmst = (0,0,0,80)
-    std_cmst = (0,0,0,5)
+    cmst = (0,0,0,82.59)
+    std_cmst = (0,0,0,1.07)
     fig, ax = plt.subplots()
     
     index = np.arange(n_groups)
@@ -86,7 +86,7 @@ def lifetime_graph():
     balanced_90 = (0, 0, 9.58/great_value, 0)
     std_balanced_90 = (0,0, 0, 0)
     
-    cmst = (0, 0,0,10/great_value)
+    cmst = (0, 0,0,9.72/great_value)
     std_cmst = (0, 0, 0 ,0)
     fig, ax = plt.subplots()
     
