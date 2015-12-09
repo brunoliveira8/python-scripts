@@ -89,20 +89,23 @@ def max_hop():
         print max(tree_size)
 
 def tree_size():
-    for i in xrange(16):
-        sub_tree_size(i)
-        get_hops(i)
-        tree_size = []
-        for x in motes_ip:
-            if x in motes_tree['6ce6']:
-                sum = motes_tree_size[x]
-                for y in motes_tree[x]:
-                    sum = sum + motes_tree_size[y]
-                    for z in motes_tree[y]:
-                        sum = sum + motes_tree_size[z]
-                tree_size.append(sum+1)
-        print tree_size
-        print reduce(lambda x,y:x+y,tree_size)
+    line = 2
+    sub_tree_size(line)
+    get_hops(line)
+    tree_size = []
+    experiment = []
+    for x in motes_ip:
+        if x in motes_tree['6ce6']:
+            sum = motes_tree_size[x]
+            for y in motes_tree[x]:
+                sum = sum + motes_tree_size[y]
+                for z in motes_tree[y]:
+                    sum = sum + motes_tree_size[z]
+            tree_size.append(sum+1)
+    
+    for i in tree_size:
+        print i
+    
 
 def main():
     tree_size()
