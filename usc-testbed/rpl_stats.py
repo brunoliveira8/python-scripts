@@ -57,10 +57,22 @@ def get_hops():
                 
 
 def main():
+    
     sub_tree_size()
     get_hops()
+    tree_size = []
+
     for x in motes_ip:
-        print x
+        sum = 0
+        if motes_tree_size[x] == 0:
+            y = x
+            while motes_hop[y] != '6ce6':
+                sum = sum+motes_tree_size[y]
+                y = motes_hop[y]
+            tree_size.append(sum)
+
+    print tree_size
+
 
 
 if __name__ == '__main__':

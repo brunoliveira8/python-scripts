@@ -8,7 +8,10 @@ Created on Mon Dec  7 17:00:09 2015
 Bar chart demo with pairs of bars grouped for easy comparison.
 """
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+
 
 def pdr_graph():
     n_groups = 4
@@ -62,31 +65,30 @@ def pdr_graph():
                      label='CMST')
     
     
-    plt.xlabel('Objective Function')
+
     plt.ylabel('Network Delivery Ratio(%)')
-    plt.title('Network Delivery Ratio by Objective Function')
     #plt.xticks(index + bar_width, ('MHROF', 'CMST','Balanced 80', 'Balanced 90'))
     plt.xticks(index + 0.2, ('MHROF','ALABAMO-80', 'ALABAMO-90', 'CMST'))
-    plt.legend(bbox_to_anchor=(1.4, 1))
+    #plt.legend(bbox_to_anchor=(1.4, 1))
     
     plt.tight_layout()
-    plt.show()
+    plt.savefig('pdr_bar.eps', format='eps')
 
 def lifetime_graph():
     
     great_value = 15.53
     n_groups = 4
     
-    normal = (15.53/great_value, 0, 0, 0 )
+    normal = (great_value/15.53, 0, 0, 0 )
     std_normal = (0,0,0, 0)
     
-    balanced_80 = (0, 7.71/great_value, 0, 0)
+    balanced_80 = (0, great_value/7.71, 0, 0)
     std_balanced_80 = (0, 0, 0, 0)
     
-    balanced_90 = (0, 0, 9.58/great_value, 0)
+    balanced_90 = (0, 0, great_value/9.58, 0)
     std_balanced_90 = (0,0, 0, 0)
     
-    cmst = (0, 0,0,9.72/great_value)
+    cmst = (0, 0,0,great_value/9.72)
     std_cmst = (0, 0, 0 ,0)
     fig, ax = plt.subplots()
     
@@ -128,14 +130,12 @@ def lifetime_graph():
     
     
     
-    plt.xlabel('Objective Function')
-    plt.ylabel('Lifetime')
-    plt.title('Lifetime by Objective Function')
+    plt.ylabel('Normalized Average Lifetime')
     plt.xticks(index + 0.2, ('MHROF','ALABAMO-80', 'ALABAMO-90', 'CMST'))
-    plt.legend(bbox_to_anchor=(1.4, 1))
-    
+    #plt.legend(bbox_to_anchor=(1.4, 1))
     plt.tight_layout()
-    plt.show()
+   
+    plt.savefig('lifetime_bar.eps', format='eps')
 
 pdr_graph()
 lifetime_graph()
