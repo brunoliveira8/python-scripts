@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys 
 
-EXPERIMENTO = "normal-rpl-tree"
+EXPERIMENTO = "balanced-rpl-80-tree"
 
 nodes = [2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 14, 15, 
     18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 
@@ -89,7 +89,7 @@ def max_hop():
         print max(tree_size)
 
 def tree_size():
-    line = 2
+    line = 7
     sub_tree_size(line)
     get_hops(line)
     tree_size = []
@@ -103,8 +103,7 @@ def tree_size():
                     sum = sum + motes_tree_size[z]
             tree_size.append(sum+1)
     
-    for i in tree_size:
-        print i
+    print max(tree_size)
     
 
 def main():
