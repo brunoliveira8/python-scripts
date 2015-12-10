@@ -17,16 +17,16 @@ def pdr_graph():
     n_groups = 4
     
     normal = (70.56, 0, 0, 0 )
-    std_normal = (4.43,0,0, 0)
+    std_normal = (3.64,0,0, 0)
     
     balanced_80 = (0,  48.43, 0, 0)
-    std_balanced_80 = (0, 8.55, 0, 0)
+    std_balanced_80 = (0, 7.03, 0, 0)
     
-    balanced_90 = (0, 0, 27.37, 0 )
-    std_balanced_90 = (0,0,5.56, 0)
+    balanced_90 = (0, 0, 27.61, 0 )
+    std_balanced_90 = (0,0,4.77, 0)
     
-    cmst = (0,0,0,82.59)
-    std_cmst = (0,0,0,1.07)
+    cmst = (0,0,0,75.15)
+    std_cmst = (0,0,0,0.75)
     fig, ax = plt.subplots()
     
     index = np.arange(n_groups)
