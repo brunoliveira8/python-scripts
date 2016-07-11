@@ -39,7 +39,7 @@ def pdr_graph():
                      color='b',
                      yerr=std_normal,
                      error_kw=error_config,
-                     label='MHROF')
+                     label='MRHOF')
     
     rects2 = plt.bar(index, balanced_80, bar_width,
                      alpha=opacity,
@@ -61,7 +61,7 @@ def pdr_graph():
 
     plt.ylabel('Network Delivery Ratio(%)')
     #plt.xticks(index + bar_width, ('MHROF', 'CMST','Balanced 80', 'Balanced 90'))
-    plt.xticks(index + 0.2, ('MHROF','ALABAMO-80', 'ALABAMO-90'))
+    plt.xticks(index + 0.2, ('MRHOF','ALABAMO-80', 'ALABAMO-90'))
     #plt.legend(bbox_to_anchor=(1.4, 1))
     
     plt.tight_layout()
@@ -95,7 +95,7 @@ def lifetime_graph():
                      color='b',
                      yerr=std_normal,
                      error_kw=error_config,
-                     label='MHROF')
+                     label='MRHOF')
     
     
     rects2 = plt.bar(index, balanced_80, bar_width,
@@ -116,7 +116,7 @@ def lifetime_graph():
     
     
     plt.ylabel('Normalized Average Lifetime')
-    plt.xticks(index + 0.2, ('MHROF','ALABAMO-80', 'ALABAMO-90'))
+    plt.xticks(index + 0.2, ('MRHOF','ALABAMO-80', 'ALABAMO-90'))
     #plt.legend(bbox_to_anchor=(1.4, 1))
     plt.tight_layout()
    
@@ -135,7 +135,6 @@ def lin_graph():
     plt.xlim(0, 90)
     plt.ylim(0, 3)
    
-#pdr_graph()
-#lifetime_graph()
+pdr_graph()
+lifetime_graph()
 
-lin_graph()
